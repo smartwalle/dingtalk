@@ -33,8 +33,6 @@ func (this *Client) doRequest(method, path string, param url.Values, reqData int
 	if reqData != nil {
 		reqBytes, _ := json.Marshal(reqData)
 		buf = bytes.NewReader(reqBytes)
-
-		fmt.Println(string(reqBytes))
 	}
 
 	req, err := http.NewRequest(method, fmt.Sprintf("%s/%s?%s", kAPIDomain, path, param.Encode()), buf)
